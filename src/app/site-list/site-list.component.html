@@ -5,6 +5,11 @@
     <button class="mb-5 mx-0.5 px-5 py-3 text-sm bg-gray-900 text-white shadaw rounded-md">
         Nouveau site
     </button>
+    <!--  alert message -->
+
+    <div *ngIf="isSuccess" class="p-5 my-3 bg-teal-100 text-teal-900">
+        {{ successMessage }}
+    </div>
     <!--  forulaire d'ajout de nouvel website -->
     <div class="px-20 py-10 mb-10 my-5 border-4 border-gray-900">
         <h2 class="text-3xl text-center">  {{ formState }} site</h2>
@@ -12,15 +17,15 @@
         <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
             <div class="flex flex-col">
                 <label class="text-lg font-medium mb-2">Nom du site</label> 
-                <input [(ngModel)]="siteName" type="text" name="siteName" class="border-2 border-gray-900 p-2 rounded-lg w-full">
+                <input [(ngModel)]='siteName' type="text" name="siteName" class="border-2 border-gray-900 p-2 rounded-lg w-full">
             </div>
             <div class="flex flex-col">
                 <label class="text-lg font-medium mb-2">URL du site</label> 
-                <input [(ngModel)]="siteURL" type="text" name="siteURL" class="border-2 border-gray-900 p-2 rounded-lg w-full">
+                <input [(ngModel)]='siteURL' type="text" name="siteURL" class="border-2 border-gray-900 p-2 rounded-lg w-full">
             </div>
             <div class="flex flex-col">
                 <label class="text-lg font-medium mb-2">L'url de l'image du site</label> 
-                <input [(ngModel)]="siteImgURL" type="text" name="siteImgURL" class="border-2 border-gray-900 p-2 rounded-lg w-full">
+                <input [(ngModel)]='siteImgURL' type="text" name="siteImgURL" class="border-2 border-gray-900 p-2 rounded-lg w-full">
             </div>
             <button class="mt-10 mx-0.5 px-5 py-3 text-sm bg-gray-900 text-white shadow rounded-md">
                 {{ formState }} site
@@ -46,7 +51,8 @@
                 class="my-3 mx-0.5 px-5 py-3 text-sm border-2 border-gray-900 text-gray-900 shadow rounded-md">
                 Editer 
             </button>
-            <button class="my-3 mx-0.5 px-5 py-3 text-sm border-2 border-gray-900 text-gray-900 shadow rounded-md">
+            <button (click)="deleteSite(site.id)"
+            class="my-3 mx-0.5 px-5 py-3 text-sm border-2 border-gray-900 text-gray-900 shadow rounded-md">
                 Supprimer 
             </button>
         </div>
