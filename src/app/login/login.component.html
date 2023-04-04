@@ -1,1 +1,35 @@
-<p>login works!</p>
+<section class="bg-gray-50">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen">
+        <div class="w-full  border-4  border-gray-900 bg-white rounded-lg shadow max-w-md">
+            <div class="p-6 space-y-6">
+                <h1 class="text-2xl font-bold text-gray-900"> Connecter à votre compte</h1>
+
+                <!-- alert -->
+                <div *ngIf="isError" class="p-5 my-3 bg-red-100 text-red-900 ">
+                    Ce nom d'utilisateur ou mot de passe est incorrect
+                </div>
+
+                <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" class="space-y-6">
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-gray-900">
+                            Votre Email
+                        </label>
+                        <input type="email" ngModel name="email" placeholder="nom@compagnie.com"
+                        class="block w-full p-2.5 text-sm bg-gray-50 border-4 border-gray-900 text-gray-900 rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-gray-900">
+                            Votre mot de passe
+                        </label>
+                        <input type="password" ngModel name="password" placeholder="********"
+                        class="block w-full p-2.5 text-sm bg-gray-50 border-4 border-gray-900 text-gray-900 rounded-lg">
+                    </div>
+                    <button 
+                        class="w-full  text-white bg-gray-800 hover:bg-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        Se connecter
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
